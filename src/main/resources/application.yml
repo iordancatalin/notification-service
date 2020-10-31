@@ -1,2 +1,20 @@
-{
-    }
+server:
+  port: 8081
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    password: ${ICODE_SMTP_PASSWORD}
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: ${ICODE_SMTP_EMAIL}
+
+email:
+  confirmation:
+    subject: Confirm Email
+    feEndpoint: http://localhost:3000/confirm-email/

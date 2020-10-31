@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -29,7 +30,7 @@
 
       header,
       footer,
-      main {
+      .main {
         width: 600px;
       }
 
@@ -51,26 +52,24 @@
         font-size: 1.2rem;
       }
 
-      main * {
+      .main * {
         font-family: 'Times New Roman', Times, serif;
       }
 
-      main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      .main {
+        display: block;
         align-items: center;
         padding: 3rem;
         background-color: #3f3e3e;
       }
 
-      main p {
+      .main p {
         line-height: 1.2rem;
         color: #fff;
         text-indent: 30px;
       }
 
-      main a {
+      .main a {
         margin-top: 2rem;
         padding: 1rem 2rem;
         background-color: #dd5c71;
@@ -86,17 +85,19 @@
         box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.2);
         text-align: center;
         position: relative;
+        width: 100%;
       }
 
-      main a:active {
+      .main a:active {
         top: 0.1em;
       }
+
 
     </style>
 </head>
 <body>
 <header>Thank you</header>
-<main>
+<div class="main" style="flex-direction: column">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae
         consequat nulla. Ut tortor leo, efficitur sit amet mi a, egestas
@@ -107,8 +108,8 @@
         et ipsum. Suspendisse dictum lorem nunc.
     </p>
 
-    <a href="#">Activate</a>
-</main>
+    <a th:href="${confirmationLink}">Activate</a>
+</div>
 <footer>&#169; 2020 - 2021</footer>
 </body>
 </html>
