@@ -6,5 +6,5 @@ import lombok.Data;
 public class EmailConfirmationModel {
 
     private String email;
-    private String confirmationId;
+    private String confirmationToken;
 }
