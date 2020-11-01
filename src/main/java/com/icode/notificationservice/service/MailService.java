@@ -34,20 +34,24 @@ public class MailService {
     }
 
     public void sendConfirmationEmail(EmailConfirmationModel emailConfirmationModel) {
-        MimeMessagePreparator messagePreparator = mimeMessage -> {
+        try {
+            final var messagePreparator = prepareMessage(emailConfirmationModel);
+            mailSender.send(messagePreparator);
+        } catch (MailException e) {
+            log.error(e);
+        }
+    }
+
+    private MimeMessagePreparator prepareMessage(EmailConfirmationModel emailConfirmationModel) {
+        return mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
             messageHelper.setFrom(from);
             messageHelper.setTo(emailConfirmationModel.getEmail());
             messageHelper.setSubject(emailConfirmationSubject);
 
-            final var mailContent = getMailContent(emailConfirmationModel.getConfirmationId());
+            final var mailContent = getMailContent(emailConfirmationModel.getConfirmationToken());
             messageHelper.setText(mailContent, true);
         };
-        try {
-            mailSender.send(messagePreparator);
-        } catch (MailException e) {
-            log.error(e);
-        }
     }
 
     private String getMailContent(String confirmationId) {
