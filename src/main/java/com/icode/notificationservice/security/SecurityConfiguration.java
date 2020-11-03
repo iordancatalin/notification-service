@@ -10,7 +10,7 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
-        final var publicPaths = new String[]{"/api/v1/email-confirmation"};
+        final var publicPaths = new String[]{"/api/v1/email-confirmation", "/api/v1/reset-password"};
 
         return http
                 .csrf()

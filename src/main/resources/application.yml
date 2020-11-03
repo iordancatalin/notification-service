@@ -14,7 +14,10 @@ spring:
             enable: true
     username: ${ICODE_SMTP_EMAIL}
 
-email:
-  confirmation:
-    subject: Confirm Email
-    feEndpoint: http://localhost:3000/confirm-email/
+email-confirmation:
+  subject: Confirm Email
+  feEndpoint: http://localhost:3000/confirm-email/
+
+reset-password:
+  subject: Reset Password
+  feEndpoint: http://localhost:3000/reset-password/
