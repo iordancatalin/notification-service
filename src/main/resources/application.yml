@@ -16,8 +16,8 @@ spring:
 
 email-confirmation:
   subject: Confirm Email
-  feEndpoint: http://localhost:3000/confirm-email/
+  feEndpoint: http://localhost:3000/auth/confirm-email?token=
 
 reset-password:
   subject: Reset Password
-  feEndpoint: http://localhost:3000/reset-password/
+  feEndpoint: http://localhost:3000/auth/reset-password?token=
