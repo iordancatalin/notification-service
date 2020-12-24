@@ -13,11 +13,3 @@ spring:
           starttls:
             enable: true
     username: ${ICODE_SMTP_EMAIL}
-
-email-confirmation:
-  subject: Confirm Email
-  feEndpoint: http://localhost:3000/auth/confirm-email?token=
-
-reset-password:
-  subject: Reset Password
-  feEndpoint: http://localhost:3000/auth/reset-password?token=

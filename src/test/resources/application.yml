@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    password: test-password
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    username: test_email@gmail.com
+
+email-confirmation:
+  subject: Confirm Email
+  feEndpoint: http://localhost:3000/auth/confirm-email?token=
+
+reset-password:
+  subject: Reset Password
+  feEndpoint: http://localhost:3000/auth/reset-password?token=

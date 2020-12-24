@@ -1,0 +1,17 @@
+email-confirmation:
+  subject: Confirm Email
+  feEndpoint: http://web-app/auth/confirm-email?token=
+
+reset-password:
+  subject: Reset Password
+  feEndpoint: http://web-app/auth/reset-password?token=
+
+spring:
+  data:
+    mongodb:
+      host: notification-db
+      port: 27017
+      username: notification-service
+      password: notification-service-dev
+      database: notification
+      authentication-database: admin

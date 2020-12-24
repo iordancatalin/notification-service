@@ -10,15 +10,17 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) {
-        final var publicPaths = new String[]{"/api/v1/email-confirmation", "/api/v1/reset-password"};
+        final var publicPaths = new String[]{
+                "/api/v1/email-confirmation",
+                "/api/v1/reset-password",
+                "/api/v1/notification/**",
+                "/api/v1/notifications/*"
+        };
 
         return http
                 .csrf()
                 .disable()
                 .cors(new CorsCustomizer())
-//                .authenticationManager(reactiveAuthenticationManager())
-//                .addFilterBefore(tokenGeneratorFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
-//                .addFilterAt(jwtAuthenticationFilter(), SecurityWebFiltersOrder.AUTHENTICATION)
                 .authorizeExchange()
                 .pathMatchers(publicPaths)
                 .permitAll()
